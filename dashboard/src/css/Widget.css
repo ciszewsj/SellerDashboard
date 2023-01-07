@@ -1,0 +1,18 @@
+.widget-body {
+    width: 380px;
+    height: 225px;
+    background-color: rgba(255, 199, 178, 0.25);
+    border-color: #000000;
+    border-style: solid;
+    border-radius: 10px;
+    margin: 20px auto auto;
+}
+
+.chevron-double {
+    width: 50px;
+    height: 50px;
+}
+
+/*.container {*/
+/*    max-width: 100%;*/
+/*}*/
