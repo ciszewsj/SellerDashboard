@@ -1,7 +1,7 @@
 import {ChevronDoubleLeft, ChevronDoubleRight, CircleFill} from "react-bootstrap-icons";
-import {Container} from "react-bootstrap";
+import {Container, Dropdown} from "react-bootstrap";
 
-let Widget = ({title, children}) => {
+let Widget = ({title, dropdown, children}) => {
 
     let Circles = () => {
         return <div style={{
@@ -16,6 +16,7 @@ let Widget = ({title, children}) => {
             <CircleFill/>
         </div>
     }
+
     console.log(children)
     return <div className={"widget-body"} style={{position: "relative"}}>
         <div style={{
@@ -29,6 +30,18 @@ let Widget = ({title, children}) => {
         }}>
         </div>
 
+        {dropdown &&
+            <Dropdown style={{
+                position: "absolute",
+                right: "3px",
+                top: "3px"
+            }}>
+                <Dropdown.Toggle className={"drop-down-custom"} id="dropdown-basic"
+                >
+                    {dropdown}
+                </Dropdown.Toggle>
+            </Dropdown>
+        }
         <div
             style={{
                 position: "absolute",
@@ -58,6 +71,7 @@ let Widget = ({title, children}) => {
         >
             {title}
         </h1>
+
         <div style={{
             width: "auto",
             height: "auto",
@@ -73,8 +87,6 @@ let Widget = ({title, children}) => {
                 // backgroundColor: "rgba(0,0,0,0.4)",
                 top: 0,
                 left: 0,
-                // margin: "0 0 0 0",
-                // padding: "0 0 0 0",
                 position: "relative"
             }}>
                 {children}

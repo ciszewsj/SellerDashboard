@@ -28,6 +28,10 @@
 
 .link-text {
     color: #7A1C18;
+    clear: both;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .link-text:link {

@@ -14,11 +14,11 @@ let BuyerFeedbackWidget = () => {
             "fill": "#FF8D76"
         }
     ];
-    return <Widget title={"Opinie kupujących"}>
+    return <Widget title={"Opinie kupujących"} dropdown={"123"}>
         <div style={{
             position: "absolute",
             left: "50%",
-            top: "25px",
+            top: "20px",
             transform: "translate(-50%, 0)",
             width: "90px",
             height: "80px"
@@ -29,7 +29,7 @@ let BuyerFeedbackWidget = () => {
                     <Pie data={data02} legendType={"none"} isAnimationActive={false} dataKey="value" nameKey="name"
                          cx="50%"
                          cy="50%" innerRadius={30} outerRadius={40} fill="#82ca9d">
-                        <Label className={"chart-text"} value="4/5" position="center"/>
+                        <Label className={"chart-text"} value="4/5" position="center" style={{fill: "#000"}}/>
 
 
                     </Pie>
@@ -37,18 +37,18 @@ let BuyerFeedbackWidget = () => {
                 </PieChart>
             </ResponsiveContainer>
         </div>
-        <div className={"normal-text"} style={{
+        <p className={"normal-text"} style={{
             position: "absolute",
             left: "50%",
             width: "100%",
             height:"40px",
             transform: "translate(-50%, 0)",
-            marginTop: "110px",
+            marginTop: "105px",
             overflow: "hidden"
         }}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit,
             sed do eiusmod tempor incididunt ut labore...
-        </div>
+        </p>
         <a href={"/"} className={"normal-text link-text"} style={{
             position: "absolute",
             left: "50%",

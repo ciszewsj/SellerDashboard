@@ -6,12 +6,12 @@ let SalesQualityWidget = () => {
     const data02 = [
         {
             "name": "Group A",
-            "value": 2400,
+            "value": 44,
             fill: "rgba(0,0,0,0)"
         },
         {
             "name": "Group F",
-            "value": 4800,
+            "value": 45,
             "fill": "#FF8D76"
         }
     ];
@@ -19,7 +19,7 @@ let SalesQualityWidget = () => {
         <div style={{
             position: "absolute",
             left: "50%",
-            top:"25px",
+            top: "20px",
             transform: "translate(-50%, 0)",
             width: "90px",
             height: "80px"
@@ -30,7 +30,7 @@ let SalesQualityWidget = () => {
                     <Pie data={data02} legendType={"none"} isAnimationActive={false} dataKey="value" nameKey="name"
                          cx="50%"
                          cy="50%" innerRadius={30} outerRadius={40} fill="#82ca9d">
-                        <Label className={"chart-text"} value="99/99" position="center"/>
+                        <Label className={"chart-text"} value="45/99" position="center" style={{fill: "#000"}}/>
 
 
                     </Pie>
@@ -38,14 +38,14 @@ let SalesQualityWidget = () => {
                 </PieChart>
             </ResponsiveContainer>
         </div>
-        <div className={"normal-text"} style={{
+        <p className={"normal-text"} style={{
             position: "absolute",
             left: "50%",
             transform: "translate(-50%, 0)",
-            marginTop: "110px",
+            marginTop: "105px",
         }}>
             Ocena jakości
-        </div>
+        </p>
         <a href={"/"} className={"normal-text link-text"} style={{
             position: "absolute",
             left: "50%",
