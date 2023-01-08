@@ -5,7 +5,12 @@ import './css/MyCustomCss.css';
 import './css/Widget.css';
 import {Col, Container, Row} from "react-bootstrap";
 import Widget from "./components/Widget";
-import OrdersWidget from "./components/OrdersWidget";
+import OrdersWidget from "./widgets/OrdersWidget";
+import SalesQualityWidet from "./widgets/SalesQualityWidet";
+import SalesAdviceWidget from "./widgets/SalesAdviceWidget";
+import OfferRankingWidget from "./widgets/OfferRankingWidget";
+import BuyerFeedbackWidget from "./widgets/BuyerFeedbackWidget";
+import SalesChartWidget from "./widgets/SalesChartWidget";
 
 function App() {
     return (
@@ -17,19 +22,19 @@ function App() {
                         <OrdersWidget/>
                     </Col>
                     <Col className={"d-flex justify-content-center align-items-center"}>
-                        <Widget/>
+                        <SalesQualityWidet/>
                     </Col>
                     <Col className={"d-flex justify-content-center align-items-center"}>
-                        <Widget/>
+                        <BuyerFeedbackWidget/>
                     </Col>
                     <Col className={"d-flex justify-content-center align-items-center"}>
-                        <Widget/>
+                        <OfferRankingWidget/>
                     </Col>
                     <Col className={"d-flex justify-content-center align-items-center"}>
-                        <Widget/>
+                        <SalesChartWidget/>
                     </Col>
                     <Col className={"d-flex justify-content-center align-items-center"}>
-                        <Widget/>
+                        <SalesAdviceWidget/>
                     </Col>
                 </Row>
             </Container>

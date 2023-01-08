@@ -12,6 +12,14 @@
     white-space: nowrap;
 }
 
+.big-text {
+    font-size: 64px;
+}
+
+.normal-text {
+    font-size: 12px;
+}
+
 .icon-gear {
     width: 20px;
     height: 20px;

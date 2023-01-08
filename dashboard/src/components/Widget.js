@@ -1,7 +1,7 @@
 import {ChevronDoubleLeft, ChevronDoubleRight, CircleFill} from "react-bootstrap-icons";
 import {Container} from "react-bootstrap";
 
-let Widget = (props) => {
+let Widget = ({title, children}) => {
 
     let Circles = () => {
         return <div style={{
@@ -56,18 +56,19 @@ let Widget = (props) => {
                 margin: "7px"
             }}
         >
-            Tytuł
+            {title}
         </h1>
         <Container style={{
-            width: "280px",
-            height: "155px",
+            width: "auto",
+            height: "auto",
             position: "absolute",
-            top: "40px",
-            left: "50%",
-            transform: "translate(-50%, 0)",
-            backgroundColor:"rgba(0,0,0,0.25)"
+            top: "35px",
+            bottom:"20px",
+            left:"50px",
+            right:"50px",
+            backgroundColor: "rgba(0,0,0,0.25)"
         }}>
-            {props.children}
+            {children}
         </Container>
 
     </div>
