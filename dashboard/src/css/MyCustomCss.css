@@ -14,10 +14,40 @@
 
 .big-text {
     font-size: 64px;
+    opacity: 100%;
 }
 
 .normal-text {
     font-size: 12px;
+    opacity: 100%;
+}
+.chart-text {
+    font-size: 20px;
+    opacity: 100%;
+}
+
+.link-text {
+    color: #7A1C18;
+}
+
+.link-text:link {
+    text-decoration: none;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:active {
+    text-decoration: underline;
 }
 
 .icon-gear {

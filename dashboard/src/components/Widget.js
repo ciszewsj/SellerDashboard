@@ -16,7 +16,7 @@ let Widget = ({title, children}) => {
             <CircleFill/>
         </div>
     }
-
+    console.log(children)
     return <div className={"widget-body"} style={{position: "relative"}}>
         <div style={{
             position: "absolute",
@@ -58,18 +58,30 @@ let Widget = ({title, children}) => {
         >
             {title}
         </h1>
-        <Container style={{
+        <div style={{
             width: "auto",
             height: "auto",
             position: "absolute",
             top: "35px",
-            bottom:"20px",
-            left:"50px",
-            right:"50px",
-            backgroundColor: "rgba(0,0,0,0.25)"
+            bottom: "20px",
+            left: "50px",
+            right: "50px",
         }}>
-            {children}
-        </Container>
+            <div style={{
+                width: "100%",
+                height: "100%",
+                // backgroundColor: "rgba(0,0,0,0.4)",
+                top: 0,
+                left: 0,
+                // margin: "0 0 0 0",
+                // padding: "0 0 0 0",
+                position: "relative"
+            }}>
+                {children}
+
+            </div>
+
+        </div>
 
     </div>
 
