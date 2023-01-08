@@ -36,10 +36,7 @@ let Widget = ({title, dropdown, children}) => {
                 right: "3px",
                 top: "3px"
             }}>
-                <Dropdown.Toggle className={"drop-down-custom"} id="dropdown-basic"
-                >
-                    {dropdown}
-                </Dropdown.Toggle>
+                {dropdown}
             </Dropdown>
         }
         <div

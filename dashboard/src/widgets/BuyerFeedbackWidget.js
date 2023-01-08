@@ -1,5 +1,6 @@
 import Widget from "../components/Widget";
 import {Label, Pie, PieChart, ResponsiveContainer} from "recharts";
+import {Dropdown} from "react-bootstrap";
 
 let BuyerFeedbackWidget = () => {
     const data02 = [
@@ -14,7 +15,21 @@ let BuyerFeedbackWidget = () => {
             "fill": "#FF8D76"
         }
     ];
-    return <Widget title={"Opinie kupujących"} dropdown={"123"}>
+
+    let BuyerFeedbackDropdown = () => {
+        return <>
+            <Dropdown.Toggle className={"drop-down-custom"} id="dropdown-basic">
+                Wszystkie
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+                <Dropdown.Item className={"normal-text"}>Wszystkie</Dropdown.Item>
+                <Dropdown.Item className={"normal-text"}>Pozytywne</Dropdown.Item>
+                <Dropdown.Item className={"normal-text"}>Negatywne</Dropdown.Item>
+            </Dropdown.Menu>
+        </>
+    }
+
+    return <Widget title={"Opinie kupujących"} dropdown={BuyerFeedbackDropdown()}>
         <div style={{
             position: "absolute",
             left: "50%",
@@ -41,7 +56,7 @@ let BuyerFeedbackWidget = () => {
             position: "absolute",
             left: "50%",
             width: "100%",
-            height:"40px",
+            height: "40px",
             transform: "translate(-50%, 0)",
             marginTop: "105px",
             overflow: "hidden"

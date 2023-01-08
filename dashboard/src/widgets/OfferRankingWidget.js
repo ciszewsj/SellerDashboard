@@ -1,9 +1,48 @@
 import Widget from "../components/Widget";
 import {Image} from "react-bootstrap-icons";
+import {Dropdown} from "react-bootstrap";
 
 let OfferRankingWidget = () => {
 
-    return <Widget title={"Ranking ofert"}>
+    let OfferRankingDropdown = () => {
+        return <>
+            <Dropdown.Toggle className={"drop-down-custom"} id="dropdown-basic">
+                Opcje
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+                <Dropdown className="my-dropdown">
+                    <p style={{margin: 0, marginLeft: "10px"}} className={"normal-text"}>Kupowane</p>
+                    <Dropdown.Toggle className={"drop-down-custom normal-text"}
+                                     style={{margin: 0, marginLeft: "10px"}}
+                                     id="dropdown-basic">
+                        Najczęściej
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu>
+                        <Dropdown.Item style={{margin: 0}}
+                                       className={"normal-text"}>Najczęściej</Dropdown.Item>
+                        <Dropdown.Item style={{margin: 0}}
+                                       className={"normal-text"}>Najrzadziej</Dropdown.Item>
+                    </Dropdown.Menu>
+                </Dropdown>
+                <Dropdown className="my-dropdown">
+                    <p style={{margin: 0, marginLeft: "10px"}} className={"normal-text"}>Filtruj przez</p>
+                    <Dropdown.Toggle className={"drop-down-custom normal-text"}
+                                     style={{margin: 0, marginLeft: "10px"}}
+                                     id="dropdown-basic">
+                        Ilość sztuk
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu>
+                        <Dropdown.Item style={{margin: 0}}
+                                       className={"normal-text"}>Ilość sztuk</Dropdown.Item>
+                        <Dropdown.Item style={{margin: 0}}
+                                       className={"normal-text"}>Libcza wyświetleń</Dropdown.Item>
+                    </Dropdown.Menu>
+                </Dropdown>
+            </Dropdown.Menu>
+        </>
+    }
+
+    return <Widget title={"Ranking ofert"} dropdown={OfferRankingDropdown()}>
         <>
             <div className={""} style={{
                 position: "absolute",
