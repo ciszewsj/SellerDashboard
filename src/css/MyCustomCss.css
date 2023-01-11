@@ -25,6 +25,7 @@
 .chart-text {
     font-size: 20px;
     opacity: 100%;
+    fill: #000;
 }
 
 .link-text {
@@ -55,11 +56,6 @@ a:active {
     text-decoration: underline;
 }
 
-.icon-gear {
-    width: 20px;
-    height: 20px;
-    color: black;
-}
 
 .drop-down-custom {
     width: 100px;
@@ -93,7 +89,7 @@ a:active {
 
 .drop-down-custom::after {
     text-align: right;
-    float:right;
+    float: right;
     margin-top: 8px;
     margin-right: 5px;
 }

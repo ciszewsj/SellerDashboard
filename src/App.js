@@ -3,10 +3,10 @@ import NavigationBar from "./components/NavigationBar";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/MyCustomCss.css';
 import './css/Widget.css';
+import './css/Navigation.css';
 import {Col, Container, Row} from "react-bootstrap";
-import Widget from "./components/Widget";
 import OrdersWidget from "./widgets/OrdersWidget";
-import SalesQualityWidet from "./widgets/SalesQualityWidet";
+import SalesQualityWidget from "./widgets/SalesQualityWidet";
 import SalesAdviceWidget from "./widgets/SalesAdviceWidget";
 import OfferRankingWidget from "./widgets/OfferRankingWidget";
 import BuyerFeedbackWidget from "./widgets/BuyerFeedbackWidget";
@@ -22,7 +22,7 @@ function App() {
                         <OrdersWidget/>
                     </Col>
                     <Col className={"d-flex justify-content-center align-items-center"}>
-                        <SalesQualityWidet/>
+                        <SalesQualityWidget/>
                     </Col>
                     <Col className={"d-flex justify-content-center align-items-center"}>
                         <BuyerFeedbackWidget/>

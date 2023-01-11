@@ -3,30 +3,13 @@ import Widget from "../components/Widget";
 let OrdersWidget = () => {
     return <Widget title={"Zamówienia"}>
         <>
-            <p className={"big-text"} style={{
-                position: "absolute",
-                left: "50%",
-                transform: "translate(-50%, 0)",
-                textAlign: "center",
-                marginTop: "20px",
-                overflow: "hidden"
-            }}>
+            <p className={"big-text main-element"}>
                 123
             </p>
-            <p className={"normal-text"} style={{
-                position: "absolute",
-                left: "50%",
-                transform: "translate(-50%, 0)",
-                marginTop: "105px",
-            }}>
+            <p className={"normal-text widget-title-position"}>
                 Niewysłane
             </p>
-            <a href={"/"} className={"normal-text link-text"} style={{
-                position: "absolute",
-                left: "50%",
-                transform: "translate(-50%, 0)",
-                bottom: "5px",
-            }}>
+            <a href={"/"} className={"normal-text link-text widget-link"}>
                 Przejdź do strony
             </a>
         </>
