@@ -4,41 +4,19 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/MyCustomCss.css';
 import './css/Widget.css';
 import './css/Navigation.css';
-import {Col, Container, Row} from "react-bootstrap";
-import OrdersWidget from "./widgets/OrdersWidget";
-import SalesQualityWidget from "./widgets/SalesQualityWidet";
-import SalesAdviceWidget from "./widgets/SalesAdviceWidget";
-import OfferRankingWidget from "./widgets/OfferRankingWidget";
-import BuyerFeedbackWidget from "./widgets/BuyerFeedbackWidget";
-import SalesChartWidget from "./widgets/SalesChartWidget";
+import SellerDashboardSite from "./sites/SellerDashboardSite";
+import Settings, {SettingsContext} from "./data/Settings";
+import {useState} from "react";
 
 function App() {
+
     return (
-        <div className="App">
-            <NavigationBar/>
-            <Container className={"container-xxl"}>
-                <Row className={"justify-content-center row-cols-sm mx-auto align-items-center"}>
-                    <Col className={"d-flex justify-content-center align-items-center"}>
-                        <OrdersWidget/>
-                    </Col>
-                    <Col className={"d-flex justify-content-center align-items-center"}>
-                        <SalesQualityWidget/>
-                    </Col>
-                    <Col className={"d-flex justify-content-center align-items-center"}>
-                        <BuyerFeedbackWidget/>
-                    </Col>
-                    <Col className={"d-flex justify-content-center align-items-center"}>
-                        <OfferRankingWidget/>
-                    </Col>
-                    <Col className={"d-flex justify-content-center align-items-center"}>
-                        <SalesChartWidget/>
-                    </Col>
-                    <Col className={"d-flex justify-content-center align-items-center"}>
-                        <SalesAdviceWidget/>
-                    </Col>
-                </Row>
-            </Container>
-        </div>
+        <SettingsContext.Provider value={useState(Settings)}>
+            <div className="App bg-dark">
+                <NavigationBar/>
+                <SellerDashboardSite/>
+            </div>
+        </SettingsContext.Provider>
     );
 }
 

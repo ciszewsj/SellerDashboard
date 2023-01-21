@@ -10,6 +10,7 @@ import {
     ResponsiveContainer
 } from "recharts";
 import {Dropdown} from "react-bootstrap";
+import DropdownButton from "../components/DropdownButton";
 
 let SalesChartWidget = () => {
     const data = [
@@ -44,44 +45,26 @@ let SalesChartWidget = () => {
     ]
 
     let SalesChartDropdown = () => {
-        return <>
-            <Dropdown.Toggle className={"drop-down-custom"} id="dropdown-basic">
-                Opcje
-            </Dropdown.Toggle>
-            <Dropdown.Menu>
-                <Dropdown className="my-dropdown">
-                    <p className={"normal-text drop-down-toggle-position"}>Zakres czasu</p>
-                    <Dropdown.Toggle className={"drop-down-custom normal-text drop-down-toggle-position"}
-                                     id="dropdown-basic">
-                        Dziś
-                    </Dropdown.Toggle>
-                    <Dropdown.Menu>
-                        <Dropdown.Item
-                            className={"normal-text to-left-item"}>Dziś</Dropdown.Item>
-                        <Dropdown.Item
-                            className={"normal-text to-left-item"}>Obecny tydzień</Dropdown.Item>
-                        <Dropdown.Item
-                            className={"normal-text to-left-item"}>Poprzedni tydzień</Dropdown.Item>
-                    </Dropdown.Menu>
-                </Dropdown>
-                <Dropdown className="my-dropdown">
-                    <p className={"normal-text drop-down-toggle-position"}>Typ wykresu</p>
-                    <Dropdown.Toggle className={"drop-down-custom normal-text drop-down-toggle-position"}
-                                     id="dropdown-basic">
-                        Liniowy
-                    </Dropdown.Toggle>
-                    <Dropdown.Menu>
-                        <Dropdown.Item
-                            className={"normal-text to-left-item"}>Liniowy</Dropdown.Item>
-                        <Dropdown.Item
-                            className={"normal-text to-left-item"}>Słupkowy</Dropdown.Item>
-                    </Dropdown.Menu>
-                </Dropdown>
-                <p className={"normal-text drop-down-toggle-position"}>Poprzedni okres</p>
-                <input type={"checkbox"}/>
-
-            </Dropdown.Menu>
-        </>
+        return <DropdownButton title={"Opcje"}>
+            <p className={"normal-text drop-down-toggle-position"}>Zakres czasu</p>
+            <DropdownButton title={"Dziś"} position={"drop-down-toggle-position"}>
+                <Dropdown.Item
+                    className={"normal-text to-left-item"}>Dziś</Dropdown.Item>
+                <Dropdown.Item
+                    className={"normal-text to-left-item"}>Obecny tydzień</Dropdown.Item>
+                <Dropdown.Item
+                    className={"normal-text to-left-item"}>Poprzedni tydzień</Dropdown.Item>
+            </DropdownButton>
+            <p className={"normal-text drop-down-toggle-position"}>Typ wykresu</p>
+            <DropdownButton title={"Liniowy"} position={"drop-down-toggle-position"}>
+                <Dropdown.Item
+                    className={"normal-text to-left-item"}>Liniowy</Dropdown.Item>
+                <Dropdown.Item
+                    className={"normal-text to-left-item"}>Słupkowy</Dropdown.Item>
+            </DropdownButton>
+            <p className={"normal-text drop-down-toggle-position"}>Poprzedni okres</p>
+            <input type={"checkbox"}/>
+        </DropdownButton>
     }
 
     return <Widget title={"Wykres sprzedaży"} dropdown={SalesChartDropdown()}>
