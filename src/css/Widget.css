@@ -233,3 +233,13 @@ button {
     display: inline-block;
     white-space: nowrap;
 }
+
+
+.left-graph-position {
+    left: 45px;
+}
+
+.right-graph-position {
+    right: -45px;
+    left: auto;
+}

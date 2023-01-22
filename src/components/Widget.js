@@ -20,12 +20,12 @@ let Widget = ({title, dropdown, children}) => {
             <div className={"navigation-buttons-position"}>
                 {[...Array(numberOfPages)].map((x, number) => {
                         return (
-                            <span className={"filled_button"} key={number}>
+                            <span className={"filled_button"} key={number} onClick={() => setPages(number)}>
                                 {
                                     page === number ?
-                                        <CircleFill className={"circle-size"} onClick={() => setPages(number)}/>
+                                        <CircleFill className={"circle-size"}/>
                                         :
-                                        <Circle className={"circle-size"} onClick={() => setPages(number)}/>
+                                        <Circle className={"circle-size"}/>
                                 }
                             </span>)
                     }

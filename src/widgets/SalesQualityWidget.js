@@ -1,5 +1,5 @@
 import Widget from "../components/Widget";
-import ChartGraph from "../graphs/ChartGraph";
+import ChartElement from "../components/ChartElement";
 
 
 let SalesQualityWidget = () => {
@@ -22,12 +22,7 @@ let SalesQualityWidget = () => {
     let WidgetQualityMarkBody = () => {
         return (
             <>
-                <div className={"main-element"}>
-                    <ChartGraph data={data02}/>
-                </div>
-                <p className={"normal-text widget-title-position"}>
-                    Ocena jakości
-                </p>
+                <ChartElement title={"Ocena jakości"} data={data02}/>
                 <a href={"/"} className={"normal-text link-text widget-link"}>
                     Przejdź do strony
                 </a>
@@ -57,28 +52,9 @@ let SalesQualityWidget = () => {
                 <p className={"normal-text widget-title-over-position"}>
                     Aspekty do poprawy
                 </p>
-
-                <div className={"main-element"} style={{left: "45px"}}>
-                    <ChartGraph data={data02}/>
-                    <p className={"normal-text"} style={{marginTop:"5px"}}>
-                        aspekt1
-                    </p>
-                </div>
-
-
-                <div className={"main-element"}>
-                    <ChartGraph data={data02}/>
-                    <p className={"normal-text"} style={{marginTop:"5px"}}>
-                        aspekt2
-                    </p>
-                </div>
-
-                <div className={"main-element"} style={{right: "-45px", left: "auto"}}>
-                    <ChartGraph data={data02}/>
-                    <p className={"normal-text"} style={{marginTop:"5px"}}>
-                        aspekt3
-                    </p>
-                </div>
+                <ChartElement title={"aspekt1"} data={data02} className={"left-graph-position"}/>
+                <ChartElement title={"aspekt2"} data={data02}/>
+                <ChartElement title={"aspekt3"} data={data02} className={"right-graph-position"}/>
 
 
                 <a href={"/"} className={"normal-text link-text widget-link"}>
