@@ -3,24 +3,19 @@ import {Image} from "react-bootstrap-icons";
 import {Dropdown} from "react-bootstrap";
 import DropdownButton from "../components/DropdownButton";
 import {useState} from "react";
+import {useContext} from "react";
+import {SettingsContext} from "../data/Settings";
 
 
 let OfferRankingWidget = () => {
-    let buyOptions = ["Najczęściej", "Najrzadziej"];
-    let filterPositiveOptions = ["Ilość sztuk", "Obrót"];
-    let filterNegativeOptions = ["Ilość sztuk", "Liczba wyświetleń"];
+    const [settings] = useContext(SettingsContext);
 
-    let [buyOption, setBuyOption] = useState(buyOptions[0]);
-    let [buyFilter, setFilterOption] = useState(filterPositiveOptions[0]);
+    let buyOptions = [settings.lang.mostOften, settings.lang.leastOften];
+    let filterPositiveOptions = [settings.lang.amount, settings.lang.transactions];
+    let filterNegativeOptions = [settings.lang.amount, settings.lang.views];
 
-    let setBuyOptions = (e) => {
-        setBuyOption(buyOptions[e]);
-        setFilterOptions(0);
-    }
-
-    let setFilterOptions = (e) => {
-        setFilterOption((buyOptions[0] === buyOption ? filterPositiveOptions : filterNegativeOptions)[e]);
-    }
+    let [buyOption, setBuyOption] = useState("0");
+    let [buyFilter, setFilterOption] = useState("0");
 
     let offerList = [{
         name: "Odkurzacz",
@@ -30,12 +25,11 @@ let OfferRankingWidget = () => {
     },
         {name: "Rakieta"}];
 
-
     let OfferRankingDropdown = () => {
-        return <DropdownButton title={"Opcje"}>
+        return <DropdownButton title={settings.lang.options}>
 
-            <p className={"normal-text drop-down-toggle-position"}>Kupowane</p>
-            <DropdownButton title={buyOption} position={"drop-down-toggle-position"} action={setBuyOptions}>
+            <p className={"normal-text drop-down-toggle-position"}>{settings.lang.bought}</p>
+            <DropdownButton title={buyOptions[buyOption]} position={"drop-down-toggle-position"} action={setBuyOption}>
                 {buyOptions.map((lang, number) => {
                         return (<Dropdown.Item
                             className={"normal-text"} eventKey={number}
@@ -44,9 +38,13 @@ let OfferRankingWidget = () => {
                 )}
             </DropdownButton>
 
-            <p className={"normal-text drop-down-toggle-position"}>Filtruj przez</p>
-            <DropdownButton title={buyFilter} position={"drop-down-toggle-position"} action={setFilterOptions}>
-                {(buyOptions[0] === buyOption ? filterPositiveOptions : filterNegativeOptions).map((lang, number) => {
+            <p className={"normal-text drop-down-toggle-position"}>{settings.lang.filterBy}</p>
+            <DropdownButton
+                title={(buyOption === (0).toString() ? filterPositiveOptions : filterNegativeOptions)[buyFilter]}
+                position={"drop-down-toggle-position"}
+                action={setFilterOption}>
+
+                {(buyOption === (0).toString() ? filterPositiveOptions : filterNegativeOptions).map((lang, number) => {
                         return (<Dropdown.Item
                             className={"normal-text"} eventKey={number}
                             key={number}>{lang}</Dropdown.Item>)
@@ -67,19 +65,19 @@ let OfferRankingWidget = () => {
                             <Image className={"widget-image"}/>
                     }
                 </div>
-                <p className={"chart-text widget-title-position"}>
+                <p className={"widget-title-position"}>
                     {name}
                 </p>
                 <p className={"normal-text product-info"}>
-                    Liczba sprzedanych sztuk: {numberOfElements}
+                    {settings.lang.amountText} {numberOfElements}
                     <br/>
-                    Obrót: {money} PLN
+                    {settings.lang.transactionsText} {money} {settings.lang.currency}
                 </p>
             </>
         )
     }
 
-    return <Widget title={"Ranking ofert"} dropdown={OfferRankingDropdown()}>
+    return <Widget title={settings.lang.offerRanking} dropdown={OfferRankingDropdown()}>
         {offerList.map((offer, number) => {
                 return (
                     <WidgetBody name={offer.name} image={offer.image} money={offer.money}

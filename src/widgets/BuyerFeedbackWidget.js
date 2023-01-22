@@ -3,15 +3,15 @@ import {Dropdown} from "react-bootstrap";
 import DropdownButton from "../components/DropdownButton";
 import {useState} from "react";
 import ChartElement from "../components/ChartElement";
+import {useContext} from "react";
+import {SettingsContext} from "../data/Settings";
+import NavigationText from "../components/NavigationText";
 
 let BuyerFeedbackWidget = () => {
+    const [settings] = useContext(SettingsContext);
 
-    let options = ["Wszystkie", "Pozytywne", "Negatywne"];
-    const [option, setOption] = useState(options[0]);
-
-    let onOptionChange = (e) => {
-        setOption(options[e])
-    }
+    let options = [settings.lang.all, settings.lang.positive, settings.lang.negative];
+    const [option, setOption] = useState(0);
 
 
     const data02 = [
@@ -28,7 +28,7 @@ let BuyerFeedbackWidget = () => {
     ];
 
     let BuyerFeedbackDropdown = () => {
-        return <DropdownButton title={option} action={onOptionChange}>
+        return <DropdownButton title={options[option]} action={setOption}>
             {options.map((lang, number) => {
                     return (<Dropdown.Item
                         className={"normal-text"} eventKey={number}
@@ -45,24 +45,22 @@ let BuyerFeedbackWidget = () => {
                 <p className={"normal-text widget-title-position widget-p"}>
                     {comment}
                 </p>
-                <a href={"/"} className={"normal-text link-text widget-link"}>
-                    Przejdź do strony
-                </a>
+                <NavigationText/>
             </>
         )
     }
 
-    return <Widget title={"Opinie kupujących"} dropdown={BuyerFeedbackDropdown()}>
+    return <Widget title={settings.lang.buyerFeedback} dropdown={BuyerFeedbackDropdown()}>
         <WidgetBody data={data02}
-            comment={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore..."}/>
+                    comment={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore..."}/>
         <WidgetBody data={data02}
-            comment={"Lorem ipsum dolor sit amet"}/>
+                    comment={"Lorem ipsum dolor sit amet"}/>
         <WidgetBody data={data02}
-            comment={"consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore..."}/>
+                    comment={"consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore..."}/>
         <WidgetBody data={data02}
-            comment={"Lorem labore..."}/>
+                    comment={"Lorem labore..."}/>
         <WidgetBody data={data02}
-            comment={"labore..."}/>
+                    comment={"labore..."}/>
     </Widget>
 }
 export default BuyerFeedbackWidget;

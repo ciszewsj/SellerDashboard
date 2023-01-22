@@ -9,15 +9,11 @@ let DropdownButton = ({title, children, position, toggle, menu, action}) => {
         if (action != null) {
             action(e)
         }
-    }
-    } >
-        {
-            toggle ? toggle :
-                <Dropdown.Toggle className={`drop-down-custom ${position}`} id="dropdown-basic">
-                    {title}
-                </Dropdown.Toggle>
-        }
-        <Dropdown.Menu className={`${menu} ${settings.bgDark && "bg-dark text-bg-dark"}`}>
+    }}>
+        {toggle ? toggle : <Dropdown.Toggle className={`drop-down-custom ${position} `} id="dropdown-basic">
+            {title}
+        </Dropdown.Toggle>}
+        <Dropdown.Menu className={`${menu} ${settings.bgDark && "bg-dark text-bg-dark dropdown-menu-dark"}`}>
             {children}
         </Dropdown.Menu>
     </Dropdown>

@@ -1,6 +1,10 @@
 import Widget from "../components/Widget";
+import {useContext} from "react";
+import {SettingsContext} from "../data/Settings";
+import NavigationText from "../components/NavigationText";
 
 let OrdersWidget = () => {
+    const [settings] = useContext(SettingsContext);
 
     let WidgetBody = ({amount, type, link}) => {
         return (<>
@@ -10,16 +14,14 @@ let OrdersWidget = () => {
             <p className={"normal-text widget-title-position"}>
                 {type}
             </p>
-            <a href={link ? link : "/"} className={"normal-text link-text widget-link"}>
-                Przejdź do strony
-            </a>
+            <NavigationText/>
         </>)
     }
 
-    return <Widget title={"Zamówienia"}>
-        <WidgetBody amount={"143"} type={"Niewysłane"}/>
-        <WidgetBody amount={"111"} type={"Wysłane"}/>
-        <WidgetBody amount={"100"} type={"Zwroty"}/>
+    return <Widget title={settings.lang.orders}>
+        <WidgetBody amount={"143"} type={settings.lang.notSent}/>
+        <WidgetBody amount={"111"} type={settings.lang.notPaid}/>
+        <WidgetBody amount={"100"} type={settings.lang.returns}/>
     </Widget>
 };
 

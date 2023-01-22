@@ -1,8 +1,12 @@
 import Widget from "../components/Widget";
 import {InfoCircleFill} from "react-bootstrap-icons";
+import {useContext} from "react";
+import {SettingsContext} from "../data/Settings";
 
 let SalesAdviceWidget = () => {
+    const [settings] = useContext(SettingsContext);
 
+    let advices = [settings.lang.advice_1, settings.lang.advice_2, settings.lang.advice_3]
 
     let WidgetBody = ({comment}) => {
         return (<>
@@ -16,13 +20,13 @@ let SalesAdviceWidget = () => {
         </>)
     }
 
-    return <Widget title={"Porady sprzedażowe"}>
-        <WidgetBody
-            comment={"Im większe ryzyko, tym większa korzyść. Nie ma ryzyka, nie ma zabawy"}/>
-        <WidgetBody
-            comment={"Zawsze dawaj zniżkę osobom, które lubią się targować."}/>
-        <WidgetBody
-            comment={"Jeżeli będziesz umiał wywołać u ludzi śmiech, to znaczy że jesteś w formie!"}/>
+    return <Widget title={settings.lang.salesAdvice}>
+        {advices.map((advice, number) => {
+            return (
+                <WidgetBody comment={advice} key={number}/>
+            )
+        })}
+
     </Widget>
 }
 export default SalesAdviceWidget;

@@ -28,8 +28,12 @@
     fill: #000;
 }
 
+.chart-text-dark {;
+    fill: rgb(255, 255, 255);
+}
+
 .link-text {
-    color: #7A1C18;
+    color: rgba(255, 83, 58, 0.5);
     clear: both;
     display: inline-block;
     overflow: hidden;
@@ -68,21 +72,22 @@ a:active {
     font-size: 14px;
     color: #000;
     --bs-btn-active-bg: rgba(255, 199, 178, 0.5);
-    --bs-btn-active-color: #000;
+    --bs-btn-active-color: rgba(255, 199, 178, 0.5);
+    --bs-btn-hover-bg: rgba(255, 199, 178, 0.5);
+    --bs-btn-border-color: rgba(255, 199, 178, 0.5);
+    --bs-btn-active-border-color: rgba(255, 199, 178, 0.5);
 
 }
 
 .drop-down-custom:hover,
-.drop-down-custom:active,
-.drop-down-custom:focus,
-.drop-down-custom.active {
+.drop-down-custom:focus {
     width: 100px;
     height: 25px;
     padding: 0 0 0 3px;
-    border-color: rgba(255, 199, 178, 0.5);
+    border-color: rgba(255, 199, 178, 1);
     text-align: left;
     margin: 3px;
-    background-color: transparent;
+    background-color: rgba(255, 199, 178, 0.2);
     font-size: 14px;
     color: #000;
 }
@@ -97,5 +102,12 @@ a:active {
 .my-dropdown {
     border-radius: 0;
 
+}
+
+
+.dropdown-item.active,
+.dropdown-item:active {
+    background-color: unset;
+    color: unset;
 }
 

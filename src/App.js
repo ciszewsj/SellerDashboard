@@ -12,7 +12,7 @@ function App() {
     const [settings, setSettings] = useState(Settings);
     return (
         <SettingsContext.Provider value={[settings, setSettings]}>
-            <div className={`mv-100 ${settings.bgDark && "bg-dark text-bg-dark"}`}>
+            <div className={`min-vh-100 ${settings.bgDark && "bg-dark text-bg-dark"}`}>
                 <div className={`App h-100 ${settings.bgDark && "bg-dark text-bg-dark"}`}>
                     <NavigationBar/>
                     <SellerDashboardSite/>

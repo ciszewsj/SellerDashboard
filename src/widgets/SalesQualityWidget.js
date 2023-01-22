@@ -1,8 +1,12 @@
 import Widget from "../components/Widget";
 import ChartElement from "../components/ChartElement";
+import {useContext} from "react";
+import {SettingsContext} from "../data/Settings";
+import NavigationText from "../components/NavigationText";
 
 
 let SalesQualityWidget = () => {
+    const [settings] = useContext(SettingsContext);
 
 
     const data02 = [
@@ -22,10 +26,8 @@ let SalesQualityWidget = () => {
     let WidgetQualityMarkBody = () => {
         return (
             <>
-                <ChartElement title={"Ocena jakości"} data={data02}/>
-                <a href={"/"} className={"normal-text link-text widget-link"}>
-                    Przejdź do strony
-                </a>
+                <ChartElement title={settings.lang.qualityMark} data={data02}/>
+                <NavigationText/>
             </>
         )
     }
@@ -34,14 +36,12 @@ let SalesQualityWidget = () => {
         return (
             <>
                 <div className={"main-element main-text-on-widget"}>
-                    <p className={"chart-text d-inline"}>Super sprzedawca</p>
+                    <p className={"chart-text d-inline"}>{settings.lang.category_4}</p>
                 </div>
                 <p className={"normal-text widget-title-position"}>
-                    Kategoria jakości
+                    {settings.lang.qualityCategory}
                 </p>
-                <a href={"/"} className={"normal-text link-text widget-link"}>
-                    Przejdź do strony
-                </a>
+                <NavigationText/>
             </>
         )
     }
@@ -50,21 +50,19 @@ let SalesQualityWidget = () => {
         return (
             <>
                 <p className={"normal-text widget-title-over-position"}>
-                    Aspekty do poprawy
+                    {settings.lang.aspectsToBeImproved}
                 </p>
                 <ChartElement title={"aspekt1"} data={data02} className={"left-graph-position"}/>
                 <ChartElement title={"aspekt2"} data={data02}/>
                 <ChartElement title={"aspekt3"} data={data02} className={"right-graph-position"}/>
 
 
-                <a href={"/"} className={"normal-text link-text widget-link"}>
-                    Przejdź do strony
-                </a>
+                <NavigationText/>
             </>
         )
     }
 
-    return <Widget title={"Jakość sprzedaży"}>
+    return <Widget title={settings.lang.salesQuality}>
         <WidgetQualityMarkBody/>
         <WidgetQualityCategoryBody/>
         <WidgetQualityAspectsBody/>

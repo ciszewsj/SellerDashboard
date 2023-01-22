@@ -3,13 +3,15 @@ import {GearFill} from "react-bootstrap-icons";
 import DropdownButton from "./DropdownButton";
 import {SettingsContext} from "../data/Settings";
 import {useContext} from "react";
+import plLanguage from "../langs/plLanguage";
+import enLanguage from "../langs/enLanguage";
 
 let NavigationBar = () => {
 
     const [settings, setSettings] = useContext(SettingsContext);
 
     let languages = ["Polski", "English"];
-    let modes = ["Jasny", "Ciemny"];
+    let modes = [settings.lang.light, settings.lang.dark];
 
     let onModeChange = (e) => {
         settings.bgDark = e !== "0";
@@ -18,15 +20,20 @@ let NavigationBar = () => {
 
     let onLanguageChange = (e) => {
         settings.language = languages[e];
+        if (e === (0).toString()) {
+            settings.lang = plLanguage();
+        } else {
+            settings.lang = enLanguage();
+        }
         setSettings({...settings})
     }
 
     return <Navbar className={"navbar-custom navbar-expand-xxl"}>
         <Nav className={"me-auto"}>
-            <NavLink to={"/"} className={"title-text"}>Panel sprzedawcy</NavLink>
+            <NavLink to={"/"} className={"title-text"}>{settings.lang.title}</NavLink>
         </Nav>
         <Nav>
-            <DropdownButton title={"Konto1"}>
+            <DropdownButton title={"Konto1"} menu="dropdown-menu-end">
                 <Dropdown.Item className={"normal-text"}>Konto1</Dropdown.Item>
                 <Dropdown.Item className={"normal-text"}>Konto2</Dropdown.Item>
                 <Dropdown.Item className={"normal-text"}>Konto3</Dropdown.Item>
@@ -40,9 +47,9 @@ let NavigationBar = () => {
                 </Dropdown.Toggle>
             } menu="dropdown-menu-end">
 
-                <p className={"normal-text drop-down-toggle-position"}>Język</p>
+                <p className={"normal-text drop-down-toggle-position"}>{settings.lang.language}</p>
                 <DropdownButton title={settings.language} position={"drop-down-toggle-position"}
-                                action={onLanguageChange}>
+                                action={onLanguageChange} menu="dropdown-menu-end">
                     {languages.map((lang, number) => {
                             return (<Dropdown.Item
                                 className={"normal-text to-left-item"} eventKey={number}
@@ -51,9 +58,9 @@ let NavigationBar = () => {
                     )}
                 </DropdownButton>
 
-                <p className={"normal-text drop-down-toggle-position"}>Motyw</p>
+                <p className={"normal-text drop-down-toggle-position"}>{settings.lang.mode}</p>
                 <DropdownButton title={settings.bgDark ? modes[1] : modes[0]} position={"drop-down-toggle-position"}
-                                action={onModeChange}>
+                                action={onModeChange} menu="dropdown-menu-end">
                     {modes.map((mode, number) => {
                         return (
                             <Dropdown.Item eventKey={number} key={number}

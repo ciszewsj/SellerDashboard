@@ -1,0 +1,50 @@
+let PlLanguage = () => {
+    return {
+        title: "Panel Sprzedawcy",
+        language: "Język",
+        mode: "Motyw",
+        light: "Jasny",
+        dark: "Ciemny",
+        orders: "Zamówienia",
+        salesQuality: "Jakość sprzedaży",
+        buyerFeedback: "Opinie kupujących",
+        offerRanking: "Ranking ofert",
+        salesChart: "Wykres sprzedaży",
+        salesAdvice: "Porady sprzedażowe",
+        goToSite: "Przejdź do strony",
+        notSent: "Niewysłane",
+        notPaid: "Nieopłacone",
+        returns: "Zwroty",
+        qualityMark: "Ocena jakości",
+        qualityCategory: "Kategoria jakości",
+        category_1: "Słaby sprzedawca",
+        category_2: "Przeciętny sprzedawca",
+        category_3: "Dobry sprzedawca",
+        category_4: "Bardzo dobry sprzedawca",
+        category_5: "Super sprzedawca",
+        aspectsToBeImproved: "Aspekty do poprawy",
+        all: "Wszystkie",
+        positive: "Pozytywne",
+        negative: "Negatywane",
+        options: "Opcje",
+        bought: "Kupowane",
+        filterBy: "Filtruj przez",
+        mostOften: "Najczęściej",
+        leastOften: "Najrzadziej",
+        amount: "Ilość sztuk",
+        transactions: "Obrót",
+        views: "Liczba wyświetleń",
+        amountText: "Liczba sprzedanych sztuk:",
+        transactionsText: "Obrót:",
+        viewsText: "Liczba unikalnych wyświetleń:",
+        currency: "PLN",
+
+
+        advice_1: "Im większe ryzyko, tym większa korzyść. Nie ma ryzyka, nie ma zabawy.",
+        advice_2: "Zawsze dawaj zniżkę osobom, które lubią się targować.",
+        advice_3: "Jeżeli będziesz umiał wywołać u ludzi śmiech, to znaczy że jesteś w formie!",
+
+    }
+}
+
+export default PlLanguage;

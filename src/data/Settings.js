@@ -1,9 +1,11 @@
 import {createContext} from "react";
+import plLanguage from "../langs/plLanguage";
 
 let Settings = () => {
     return {
         bgDark: false,
-        language: "Polski"
+        language: "Polski",
+        lang: plLanguage()
     }
 }
 

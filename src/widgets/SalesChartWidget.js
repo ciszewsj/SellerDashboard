@@ -1,18 +1,18 @@
 import Widget from "../components/Widget";
 import {
-    Line,
-    LineChart,
-    CartesianGrid,
-    XAxis,
-    YAxis,
     ResponsiveContainer
 } from "recharts";
 import {Dropdown} from "react-bootstrap";
 import DropdownButton from "../components/DropdownButton";
 import LineGraph from "../graphs/LineGraph";
 import ColumnGraph from "../graphs/ColumnGraph";
+import {useContext} from "react";
+import {SettingsContext} from "../data/Settings";
 
 let SalesChartWidget = () => {
+    const [settings] = useContext(SettingsContext);
+
+
     const data = [
         {
             "name": "pn",
@@ -92,7 +92,7 @@ let SalesChartWidget = () => {
         )
     }
 
-    return <Widget title={"Wykres sprzedaży"} dropdown={SalesChartDropdown()}>
+    return <Widget title={settings.lang.salesChart} dropdown={SalesChartDropdown()}>
         <WidgetBody type={0}/>
         <WidgetBody type={1}/>
     </Widget>
