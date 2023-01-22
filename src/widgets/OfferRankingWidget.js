@@ -3,7 +3,26 @@ import {Image} from "react-bootstrap-icons";
 import {Dropdown} from "react-bootstrap";
 import DropdownButton from "../components/DropdownButton";
 
+
 let OfferRankingWidget = () => {
+
+    let WidgetBody = (name, numberOfElements, money) => {
+        return (
+            <>
+                <div className={"main-element"}>
+                    <Image className={"widget-image"}/>
+                </div>
+                <p className={"chart-text widget-title-position"}>
+                    {name}
+                </p>
+                <p className={"normal-text product-info"}>
+                    Liczba sprzedanych sztuk: {numberOfElements}
+                    <br/>
+                    Obrót: {money} PLN
+                </p>
+            </>
+        )
+    }
 
     let OfferRankingDropdown = () => {
         return <DropdownButton title={"Opcje"}>
@@ -28,19 +47,7 @@ let OfferRankingWidget = () => {
     }
 
     return <Widget title={"Ranking ofert"} dropdown={OfferRankingDropdown()}>
-        <>
-            <div className={"main-element"}>
-                <Image className={"widget-image"}/>
-            </div>
-            <p className={"chart-text widget-title-position"}>
-                Produkt
-            </p>
-            <p className={"normal-text product-info"}>
-                Liczba sprzedanych sztuk: 1000
-                <br/>
-                Obrót: 1000 PLN
-            </p>
-        </>
+        {/*<WidgetBody/>*/}
     </Widget>
 }
 export default OfferRankingWidget;

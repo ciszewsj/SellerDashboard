@@ -1,6 +1,6 @@
 import {Col, Container, Row} from "react-bootstrap";
 import OrdersWidget from "../widgets/OrdersWidget";
-import SalesQualityWidget from "../widgets/SalesQualityWidet";
+import SalesQualityWidget from "../widgets/SalesQualityWidget";
 import BuyerFeedbackWidget from "../widgets/BuyerFeedbackWidget";
 import OfferRankingWidget from "../widgets/OfferRankingWidget";
 import SalesChartWidget from "../widgets/SalesChartWidget";

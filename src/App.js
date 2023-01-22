@@ -12,7 +12,7 @@ function App() {
 
     return (
         <SettingsContext.Provider value={useState(Settings)}>
-            <div className="App bg-dark">
+            <div className="App">
                 <NavigationBar/>
                 <SellerDashboardSite/>
             </div>
