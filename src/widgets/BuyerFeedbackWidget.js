@@ -1,10 +1,19 @@
 import Widget from "../components/Widget";
-import {Label, Pie, PieChart, ResponsiveContainer} from "recharts";
 import {Dropdown} from "react-bootstrap";
 import DropdownButton from "../components/DropdownButton";
-import ChartGraph from "../graphs/ChartGraph";
+import {useState} from "react";
+import ChartElement from "../components/ChartElement";
 
 let BuyerFeedbackWidget = () => {
+
+    let options = ["Wszystkie", "Pozytywne", "Negatywne"];
+    const [option, setOption] = useState(options[0]);
+
+    let onOptionChange = (e) => {
+        setOption(options[e])
+    }
+
+
     const data02 = [
         {
             "name": "Group A",
@@ -19,22 +28,41 @@ let BuyerFeedbackWidget = () => {
     ];
 
     let BuyerFeedbackDropdown = () => {
-        return <DropdownButton title={"Wszystkie"}>
-            <Dropdown.Item className={"normal-text"}>Wszystkie</Dropdown.Item>
-            <Dropdown.Item className={"normal-text"}>Pozytywne</Dropdown.Item>
-            <Dropdown.Item className={"normal-text"}>Negatywne</Dropdown.Item>
+        return <DropdownButton title={option} action={onOptionChange}>
+            {options.map((lang, number) => {
+                    return (<Dropdown.Item
+                        className={"normal-text"} eventKey={number}
+                        key={number}>{lang}</Dropdown.Item>)
+                }
+            )}
         </DropdownButton>
     }
 
+    let WidgetBody = ({data, comment}) => {
+        return (
+            <>
+                <ChartElement data={data02}/>
+                <p className={"normal-text widget-title-position widget-p"}>
+                    {comment}
+                </p>
+                <a href={"/"} className={"normal-text link-text widget-link"}>
+                    Przejdź do strony
+                </a>
+            </>
+        )
+    }
+
     return <Widget title={"Opinie kupujących"} dropdown={BuyerFeedbackDropdown()}>
-        <ChartGraph data={data02}/>
-        <p className={"normal-text widget-title-position widget-p"}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod tempor incididunt ut labore...
-        </p>
-        <a href={"/"} className={"normal-text link-text widget-link"}>
-            Przejdź do strony
-        </a>
+        <WidgetBody
+            comment={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore..."}/>
+        <WidgetBody
+            comment={"Lorem ipsum dolor sit amet"}/>
+        <WidgetBody
+            comment={"consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore..."}/>
+        <WidgetBody
+            comment={"Lorem labore..."}/>
+        <WidgetBody
+            comment={"labore..."}/>
     </Widget>
 }
 export default BuyerFeedbackWidget;

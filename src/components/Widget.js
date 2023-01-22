@@ -1,6 +1,6 @@
 import {ChevronDoubleLeft, ChevronDoubleRight, Circle, CircleFill} from "react-bootstrap-icons";
 import {Dropdown} from "react-bootstrap";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 let Widget = ({title, dropdown, children}) => {
     let [page, setPage] = useState(0);
@@ -14,6 +14,13 @@ let Widget = ({title, dropdown, children}) => {
         }
         setPage(page)
     }
+
+    useEffect(() => {
+        let interval = setInterval(() => {
+            setPages(page + 1)
+        }, 10000);
+        return () => clearInterval(interval);
+    }, [page]);
 
     let Circles = () => {
         return (
@@ -54,7 +61,7 @@ let Widget = ({title, dropdown, children}) => {
         </h1>
         <div className={"field-size"}>
             <div className={"field-relative-container"}>
-                {children && children[page]}
+                {children && children[page] ? children[page] : children}
             </div>
         </div>
     </div>

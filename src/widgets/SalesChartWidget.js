@@ -5,8 +5,6 @@ import {
     CartesianGrid,
     XAxis,
     YAxis,
-    Tooltip,
-    Legend,
     ResponsiveContainer
 } from "recharts";
 import {Dropdown} from "react-bootstrap";

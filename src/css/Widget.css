@@ -9,6 +9,10 @@
     position: relative;
 }
 
+.widget-body:last-child {
+    margin-bottom: 20px;
+}
+
 .chevron-double {
     cursor: pointer;
     width: 50px;
@@ -147,6 +151,7 @@ button {
 .widget-image {
     width: 80px;
     height: 80px;
+    border-radius: 5px;
 }
 
 

@@ -10,7 +10,7 @@ let OrdersWidget = () => {
             <p className={"normal-text widget-title-position"}>
                 {type}
             </p>
-            <a href={"/"} className={"normal-text link-text widget-link"}>
+            <a href={link ? link : "/"} className={"normal-text link-text widget-link"}>
                 Przejdź do strony
             </a>
         </>)
