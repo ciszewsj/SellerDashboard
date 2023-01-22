@@ -10,6 +10,7 @@ import Settings, {SettingsContext} from "./data/Settings";
 import {useState} from "react";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import EmptySite from "./sites/EmptySite";
+import LoginSite from "./sites/LoginSite";
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
                         <Routes>
                             <Route path="/" element={<SellerDashboardSite/>}/>
                             <Route path="/*" element={<EmptySite/>}/>
+                            <Route path="/login" element={<LoginSite/>}/>
                         </Routes>
                     </div>
                 </div>

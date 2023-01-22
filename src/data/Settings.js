@@ -10,7 +10,8 @@ let Settings = () => {
         language: "Polski",
         lang: plLanguage(),
         data: user1Data(),
-        user: users[0]
+        user: users[0],
+        auth: false
     }
 }
 

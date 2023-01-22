@@ -66,6 +66,10 @@ let PlLanguage = () => {
 
         noInformationAvailable: "Brak informacji do wyświetlenia",
 
+
+        login: "Loguj",
+        selectUser: "Wybierz użytkownika",
+
     }
 }
 

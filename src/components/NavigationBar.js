@@ -44,14 +44,16 @@ let NavigationBar = () => {
                      className={`title-text ${settings.bgDark && "text-white"}`}>{settings.lang.title}</NavLink>
         </Nav>
         <Nav>
-            <DropdownButton title={settings.user} menu="dropdown-menu-end" action={onUserChange}>
-                {users.map((usr, number) => {
-                        return (
-                            <Dropdown.Item className={"normal-text"} eventKey={number} key={number}>{usr}</Dropdown.Item>
-                        )
-                    }
-                )}
-            </DropdownButton>
+            {settings.auth &&
+                <DropdownButton title={settings.user} menu="dropdown-menu-end" action={onUserChange}>
+                    {users.map((usr, number) => {
+                            return (
+                                <Dropdown.Item className={"normal-text"} eventKey={number}
+                                               key={number}>{usr}</Dropdown.Item>
+                            )
+                        }
+                    )}
+                </DropdownButton>}
             <DropdownButton toggle={
                 <Dropdown.Toggle className={`gear-button`}>
                     <div className={"gear-absolute-position"}>

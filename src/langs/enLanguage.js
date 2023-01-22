@@ -67,6 +67,9 @@ let EnLanguage = () => {
 
         noInformationAvailable: "No information to be displayed",
 
+
+        login: "Login",
+        selectUser: "Select User",
     }
 }
 
