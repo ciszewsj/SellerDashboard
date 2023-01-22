@@ -9,12 +9,14 @@ import Settings, {SettingsContext} from "./data/Settings";
 import {useState} from "react";
 
 function App() {
-
+    const [settings, setSettings] = useState(Settings);
     return (
-        <SettingsContext.Provider value={useState(Settings)}>
-            <div className="App">
-                <NavigationBar/>
-                <SellerDashboardSite/>
+        <SettingsContext.Provider value={[settings, setSettings]}>
+            <div className={`mv-100 ${settings.bgDark && "bg-dark text-bg-dark"}`}>
+                <div className={`App h-100 ${settings.bgDark && "bg-dark text-bg-dark"}`}>
+                    <NavigationBar/>
+                    <SellerDashboardSite/>
+                </div>
             </div>
         </SettingsContext.Provider>
     );

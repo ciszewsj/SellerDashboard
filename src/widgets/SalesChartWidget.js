@@ -9,35 +9,37 @@ import {
 } from "recharts";
 import {Dropdown} from "react-bootstrap";
 import DropdownButton from "../components/DropdownButton";
+import LineGraph from "../graphs/LineGraph";
+import ColumnGraph from "../graphs/ColumnGraph";
 
 let SalesChartWidget = () => {
     const data = [
         {
-            "name": "1",
+            "name": "pn",
             "pv": 2400,
         },
         {
-            "name": "2",
+            "name": "wt",
             "pv": 1398,
         },
         {
-            "name": "3",
+            "name": "śr",
             "pv": 9800,
         },
         {
-            "name": "4",
+            "name": "cz",
             "pv": 3908,
         },
         {
-            "name": "5",
+            "name": "pt",
             "pv": 4800,
         },
         {
-            "name": "6",
+            "name": "sb",
             "pv": 3800,
         },
         {
-            "name": "7",
+            "name": "nd",
             "pv": 4300,
         }
     ]
@@ -65,28 +67,34 @@ let SalesChartWidget = () => {
         </DropdownButton>
     }
 
-    return <Widget title={"Wykres sprzedaży"} dropdown={SalesChartDropdown()}>
-        <p className={"normal-text widget-title-over-position"}>
-            Obrót
-        </p>
-        <div className={"chart-box"}>
-            <ResponsiveContainer width="100%" height={100}>
-                <LineChart width={250} height={100} data={data}
-                           margin={{top: 5, right: 30, left: 20, bottom: 5}}>
-                    <CartesianGrid strokeDasharray="3 3"/>
-                    <XAxis dataKey="name"/>
-                    <YAxis width={35}/>
-                    <Line type="monotone" dataKey="pv" stroke="#7A1C18" isAnimationActive={false}/>
-                </LineChart>
-            </ResponsiveContainer>
-        </div>
+    let WidgetBody = ({type}) => {
+        return (
+            <>
+                <p className={"normal-text widget-title-over-position"}>
+                    Obrót
+                </p>
+                <div className={"chart-box"}>
+                    <ResponsiveContainer width="100%" height={100}>
+                        {type === 1 ?
+                            <ColumnGraph data={data}/> :
+                            <LineGraph data={data}/>
+                        }
+                    </ResponsiveContainer>
+                </div>
 
-        <div className={"legend-box"}>
-            <div className={"color-box"}/>
-            <p className={"normal-text legend-description"}>
-                Ten tydzień
-            </p>
-        </div>
+                <div className={"legend-box"}>
+                    <div className={"color-box"}/>
+                    <p className={"normal-text legend-description"}>
+                        Ten tydzień
+                    </p>
+                </div>
+            </>
+        )
+    }
+
+    return <Widget title={"Wykres sprzedaży"} dropdown={SalesChartDropdown()}>
+        <WidgetBody type={0}/>
+        <WidgetBody type={1}/>
     </Widget>
 }
 export default SalesChartWidget;

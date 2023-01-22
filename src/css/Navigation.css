@@ -24,6 +24,10 @@
     text-align: center;
 }
 
+.gear-button:after {
+    display: none;
+}
+
 .icon-gear {
     width: 20px;
     height: 20px;

@@ -5,7 +5,7 @@
 
 .title-text {
     font-size: 19px;
-    color: #000000;
+    /*color: #000000;*/
     clear: both;
     display: inline-block;
     overflow: hidden;
@@ -98,3 +98,4 @@ a:active {
     border-radius: 0;
 
 }
+

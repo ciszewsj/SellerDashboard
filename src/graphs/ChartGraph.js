@@ -10,7 +10,7 @@ let ChartGraph = ({data}) => {
                      nameKey="name"
                      cx="50%"
                      cy="50%" innerRadius={30} outerRadius={40} fill="#82ca9d">
-                    <Label className={"chart-text"} value="45/99" position="center"/>
+                    <Label className={"chart-text"} value={`45/99`} position="center"/>
                 </Pie>
 
             </PieChart>

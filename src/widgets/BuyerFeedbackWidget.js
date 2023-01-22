@@ -41,7 +41,7 @@ let BuyerFeedbackWidget = () => {
     let WidgetBody = ({data, comment}) => {
         return (
             <>
-                <ChartElement data={data02}/>
+                <ChartElement data={data}/>
                 <p className={"normal-text widget-title-position widget-p"}>
                     {comment}
                 </p>
@@ -53,15 +53,15 @@ let BuyerFeedbackWidget = () => {
     }
 
     return <Widget title={"Opinie kupujących"} dropdown={BuyerFeedbackDropdown()}>
-        <WidgetBody
+        <WidgetBody data={data02}
             comment={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore..."}/>
-        <WidgetBody
+        <WidgetBody data={data02}
             comment={"Lorem ipsum dolor sit amet"}/>
-        <WidgetBody
+        <WidgetBody data={data02}
             comment={"consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore..."}/>
-        <WidgetBody
+        <WidgetBody data={data02}
             comment={"Lorem labore..."}/>
-        <WidgetBody
+        <WidgetBody data={data02}
             comment={"labore..."}/>
     </Widget>
 }
