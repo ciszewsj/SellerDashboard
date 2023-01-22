@@ -30,7 +30,8 @@ let NavigationBar = () => {
 
     return <Navbar className={`navbar-custom navbar-expand-xxl ${settings.bgDark && "navbar-custom-dark"}`}>
         <Nav className={"me-auto"}>
-            <NavLink to={"/"} className={`title-text ${settings.bgDark && "text-white"}`}>{settings.lang.title}</NavLink>
+            <NavLink to={"/"}
+                     className={`title-text ${settings.bgDark && "text-white"}`}>{settings.lang.title}</NavLink>
         </Nav>
         <Nav>
             <DropdownButton title={"Konto1"} menu="dropdown-menu-end">
@@ -39,10 +40,10 @@ let NavigationBar = () => {
                 <Dropdown.Item className={"normal-text"}>Konto3</Dropdown.Item>
             </DropdownButton>
             <DropdownButton toggle={
-                <Dropdown.Toggle className={"gear-button"}>
+                <Dropdown.Toggle className={`gear-button`}>
                     <div className={"gear-absolute-position"}>
                         <GearFill
-                            className={"icon-gear"}/>
+                            className={`icon-gear ${settings.bgDark && "gear-button-dark"}`}/>
                     </div>
                 </Dropdown.Toggle>
             } menu="dropdown-menu-end">
