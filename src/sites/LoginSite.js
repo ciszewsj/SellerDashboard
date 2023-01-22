@@ -15,7 +15,7 @@ let LoginSite = () => {
             {settings.auth ? <Navigate to={"/"}/> :
                 <>
                     <p className={"m-4"}>{settings.lang.selectUser}</p>
-                    <DropdownButton title={settings.user} menu="dropdown-menu-end" action={setUser}>
+                    <DropdownButton title={users[Number(user)]} menu="dropdown-menu-end" action={setUser}>
                         {users.map((usr, number) => {
                                 return (
                                     <Dropdown.Item className={"normal-text"} eventKey={number}
