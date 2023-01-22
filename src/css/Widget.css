@@ -226,3 +226,10 @@ button {
     width: 250px;
     height: 100px;
 }
+
+.main-text-on-widget {
+    margin-top: 64px;
+    clear: both;
+    display: inline-block;
+    white-space: nowrap;
+}

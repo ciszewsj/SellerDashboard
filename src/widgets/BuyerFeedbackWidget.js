@@ -2,6 +2,7 @@ import Widget from "../components/Widget";
 import {Label, Pie, PieChart, ResponsiveContainer} from "recharts";
 import {Dropdown} from "react-bootstrap";
 import DropdownButton from "../components/DropdownButton";
+import ChartGraph from "../graphs/ChartGraph";
 
 let BuyerFeedbackWidget = () => {
     const data02 = [
@@ -26,21 +27,7 @@ let BuyerFeedbackWidget = () => {
     }
 
     return <Widget title={"Opinie kupujących"} dropdown={BuyerFeedbackDropdown()}>
-        <div className={"main-element circle-chart"}>
-            <ResponsiveContainer width="100%" height={90}>
-                <PieChart>
-
-                    <Pie data={data02} legendType={"none"} isAnimationActive={false} dataKey="value" nameKey="name"
-                         cx="50%"
-                         cy="50%" innerRadius={30} outerRadius={40} fill="#82ca9d">
-                        <Label className={"chart-text"} value="4/5" position="center"/>
-
-
-                    </Pie>
-
-                </PieChart>
-            </ResponsiveContainer>
-        </div>
+        <ChartGraph data={data02}/>
         <p className={"normal-text widget-title-position widget-p"}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit,
             sed do eiusmod tempor incididunt ut labore...

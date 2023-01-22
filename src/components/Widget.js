@@ -5,10 +5,14 @@ import {useState} from "react";
 let Widget = ({title, dropdown, children}) => {
     let [page, setPage] = useState(0);
     let numberOfPages = children && children[0] ? children.length : 1;
-    if (page < 0) {
-        setPage(numberOfPages - 1);
-    } else if (page >= numberOfPages) {
-        page = 0;
+
+    let setPages = (page) => {
+        if (page < 0) {
+            page = numberOfPages - 1;
+        } else if (page >= numberOfPages) {
+            page = 0;
+        }
+        setPage(page)
     }
 
     let Circles = () => {
@@ -19,9 +23,9 @@ let Widget = ({title, dropdown, children}) => {
                             <span className={"filled_button"} key={number}>
                                 {
                                     page === number ?
-                                        <CircleFill className={"circle-size"} onClick={() => setPage(number)}/>
+                                        <CircleFill className={"circle-size"} onClick={() => setPages(number)}/>
                                         :
-                                        <Circle className={"circle-size"} onClick={() => setPage(number)}/>
+                                        <Circle className={"circle-size"} onClick={() => setPages(number)}/>
                                 }
                             </span>)
                     }
@@ -37,11 +41,11 @@ let Widget = ({title, dropdown, children}) => {
                 {dropdown}
             </Dropdown>
         }
-        <button className={"left-chevron-position"} onClick={() => setPage(page -= 1)}>
+        <button className={"left-chevron-position"} onClick={() => setPages(page -= 1)}>
             <ChevronDoubleLeft className={"chevron-double"}/>
         </button>
 
-        <button className={"right-chevron-position"} onClick={() => setPage(page += 1)}>
+        <button className={"right-chevron-position"} onClick={() => setPages(page += 1)}>
             <ChevronDoubleRight className={"chevron-double"}/>
         </button>
         <Circles/>
