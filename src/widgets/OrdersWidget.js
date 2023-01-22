@@ -19,9 +19,9 @@ let OrdersWidget = () => {
     }
 
     return <Widget title={settings.lang.orders}>
-        <WidgetBody amount={"143"} type={settings.lang.notSent}/>
-        <WidgetBody amount={"111"} type={settings.lang.notPaid}/>
-        <WidgetBody amount={"100"} type={settings.lang.returns}/>
+        <WidgetBody amount={settings.data.orders.notSent} type={settings.lang.notSent}/>
+        <WidgetBody amount={settings.data.orders.notPaid} type={settings.lang.notPaid}/>
+        <WidgetBody amount={settings.data.orders.returns} type={settings.lang.returns}/>
     </Widget>
 };
 

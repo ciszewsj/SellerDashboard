@@ -23,6 +23,13 @@ let PlLanguage = () => {
         category_4: "Bardzo dobry sprzedawca",
         category_5: "Super sprzedawca",
         aspectsToBeImproved: "Aspekty do poprawy",
+
+        aspects_1: "Czas dostawy",
+        aspects_2: "Pakowanie",
+        aspects_3: "Jakość obsługi",
+        aspects_4: "Obsługa klienta",
+        aspects_5: "Opis produktu",
+
         all: "Wszystkie",
         positive: "Pozytywne",
         negative: "Negatywane",
@@ -39,6 +46,17 @@ let PlLanguage = () => {
         viewsText: "Liczba unikalnych wyświetleń:",
         currency: "PLN",
 
+        lineGraph: "Liniowy",
+        columnGraph: "Kolumnowy",
+
+        typeGraph: "Typ wykresu",
+        transactionsGraph: "Obrót",
+        amountGraph: "Liczba sprzedanych sztuk",
+        time: "Zakres czasu",
+        today: "Dziś",
+        thisWeek: "Obecny tydzień",
+        lastWeek: "Poprzedni tydzień",
+        lastTime: "Poprzedni okres",
 
         advice_1: "Im większe ryzyko, tym większa korzyść. Nie ma ryzyka, nie ma zabawy.",
         advice_2: "Zawsze dawaj zniżkę osobom, które lubią się targować.",

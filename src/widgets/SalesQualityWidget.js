@@ -8,25 +8,16 @@ import NavigationText from "../components/NavigationText";
 let SalesQualityWidget = () => {
     const [settings] = useContext(SettingsContext);
 
+    let aspects = [settings.lang.aspects_1, settings.lang.aspects_2, settings.lang.aspects_3, settings.lang.aspects_4, settings.lang.aspects_5]
+    let qualityMarks = [settings.lang.category_1, settings.lang.category_2, settings.lang.category_3, settings.lang.category_4, settings.lang.category_5]
 
-    const data02 = [
-        {
-            "name": "Group A",
-            "value": 44,
-            fill: "rgba(0,0,0,0)"
-        },
-        {
-            "name": "Group F",
-            "value": 45,
-            fill: "#FF8D76"
-        }
-    ];
+    let datas = settings.data.qualitySales;
 
 
     let WidgetQualityMarkBody = () => {
         return (
             <>
-                <ChartElement title={settings.lang.qualityMark} data={data02}/>
+                <ChartElement title={settings.lang.qualityMark} get={datas.mark.get} max={datas.mark.max}/>
                 <NavigationText/>
             </>
         )
@@ -36,7 +27,7 @@ let SalesQualityWidget = () => {
         return (
             <>
                 <div className={"main-element main-text-on-widget"}>
-                    <p className={"chart-text d-inline"}>{settings.lang.category_4}</p>
+                    <p className={"chart-text d-inline"}>{qualityMarks[settings.data.qualitySales.mark.mark]}</p>
                 </div>
                 <p className={"normal-text widget-title-position"}>
                     {settings.lang.qualityCategory}
@@ -52,11 +43,15 @@ let SalesQualityWidget = () => {
                 <p className={"normal-text widget-title-over-position"}>
                     {settings.lang.aspectsToBeImproved}
                 </p>
-                <ChartElement title={"aspekt1"} data={data02} className={"left-graph-position"}/>
-                <ChartElement title={"aspekt2"} data={data02}/>
-                <ChartElement title={"aspekt3"} data={data02} className={"right-graph-position"}/>
-
-
+                {datas.worst[0] &&
+                    <ChartElement title={aspects[datas.worst[0].type]} get={datas.worst[0].get} max={datas.worst[0].max}
+                                  className={"left-graph-position"}/>}
+                {datas.worst[1] &&
+                    <ChartElement title={aspects[datas.worst[1].type]} get={datas.worst[1].get}
+                                  max={datas.worst[1].max}/>}
+                {datas.worst[2] &&
+                    <ChartElement title={aspects[datas.worst[2].type]} get={datas.worst[2].get} max={datas.worst[2].max}
+                                  className={"right-graph-position"}/>}
                 <NavigationText/>
             </>
         )

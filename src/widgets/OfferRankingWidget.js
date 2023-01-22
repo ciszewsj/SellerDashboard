@@ -17,13 +17,22 @@ let OfferRankingWidget = () => {
     let [buyOption, setBuyOption] = useState("0");
     let [buyFilter, setFilterOption] = useState("0");
 
-    let offerList = [{
-        name: "Odkurzacz",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/640px-Image_created_with_a_mobile_phone.png",
-        money: 100,
-        numberOfElements: 100
-    },
-        {name: "Rakieta"}];
+    let offers;
+
+    if (Number(buyOption) === 0) {
+        if (Number(buyFilter) === 0) {
+            offers = settings.data.offers.best.amount;
+        } else if (Number(buyFilter) === 1) {
+            offers = settings.data.offers.best.transactions;
+        }
+    } else if (Number(buyOption) === 1) {
+        if (Number(buyFilter) === 0) {
+            offers = settings.data.offers.worst.amount;
+        } else if (Number(buyFilter) === 1) {
+            offers = settings.data.offers.worst.views;
+        }
+    }
+
 
     let OfferRankingDropdown = () => {
         return <DropdownButton title={settings.lang.options}>
@@ -54,7 +63,7 @@ let OfferRankingWidget = () => {
         </DropdownButton>
     }
 
-    let WidgetBody = ({name, numberOfElements, money, image}) => {
+    let WidgetBody = ({best, name, numberOfElements, money, image, views}) => {
         return (
             <>
                 <div className={"main-element"}>
@@ -71,17 +80,21 @@ let OfferRankingWidget = () => {
                 <p className={"normal-text product-info"}>
                     {settings.lang.amountText} {numberOfElements}
                     <br/>
-                    {settings.lang.transactionsText} {money} {settings.lang.currency}
+                    {Number(best) === 0 ? `${settings.lang.transactionsText} ${money} ${settings.lang.currency}`
+                        :
+                        `${settings.lang.viewsText} ${views}`
+                    }
                 </p>
             </>
         )
     }
-
+    console.log(offers)
     return <Widget title={settings.lang.offerRanking} dropdown={OfferRankingDropdown()}>
-        {offerList.map((offer, number) => {
+        {offers.map((offer, number) => {
                 return (
-                    <WidgetBody name={offer.name} image={offer.image} money={offer.money}
-                                numberOfElements={offer.numberOfElements}/>
+                    <WidgetBody best={buyOption} name={offer.name} image={offer.image} money={offer.transactions}
+                                key={number} views={offer.views}
+                                numberOfElements={offer.amount}/>
                 )
             }
         )}

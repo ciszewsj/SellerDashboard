@@ -97,13 +97,24 @@ a:active {
     float: right;
     margin-top: 8px;
     margin-right: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+
 }
 
 .my-dropdown {
     border-radius: 0;
-
 }
 
+.dropdown-text {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 100px;
+    display: inline-block;
+    vertical-align: middle;
+}
 
 .dropdown-item.active,
 .dropdown-item:active {

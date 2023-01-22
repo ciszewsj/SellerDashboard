@@ -11,21 +11,18 @@ let BuyerFeedbackWidget = () => {
     const [settings] = useContext(SettingsContext);
 
     let options = [settings.lang.all, settings.lang.positive, settings.lang.negative];
-    const [option, setOption] = useState(0);
+    const [option, setOption] = useState("0");
 
+    let comments;
 
-    const data02 = [
-        {
-            "name": "Group A",
-            "value": 1,
-            fill: "rgba(0,0,0,0)"
-        },
-        {
-            "name": "Group F",
-            "value": 4,
-            fill: "#FF8D76"
-        }
-    ];
+    if (Number(option) === 0) {
+        comments = settings.data.feedback.all;
+    } else if (Number(option) === 1) {
+        comments = settings.data.feedback.best;
+    } else {
+        comments = settings.data.feedback.worst;
+    }
+
 
     let BuyerFeedbackDropdown = () => {
         return <DropdownButton title={options[option]} action={setOption}>
@@ -38,10 +35,10 @@ let BuyerFeedbackWidget = () => {
         </DropdownButton>
     }
 
-    let WidgetBody = ({data, comment}) => {
+    let WidgetBody = ({get, max, comment}) => {
         return (
             <>
-                <ChartElement data={data}/>
+                <ChartElement get={get} max={max}/>
                 <p className={"normal-text widget-title-position widget-p"}>
                     {comment}
                 </p>
@@ -51,16 +48,13 @@ let BuyerFeedbackWidget = () => {
     }
 
     return <Widget title={settings.lang.buyerFeedback} dropdown={BuyerFeedbackDropdown()}>
-        <WidgetBody data={data02}
-                    comment={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore..."}/>
-        <WidgetBody data={data02}
-                    comment={"Lorem ipsum dolor sit amet"}/>
-        <WidgetBody data={data02}
-                    comment={"consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore..."}/>
-        <WidgetBody data={data02}
-                    comment={"Lorem labore..."}/>
-        <WidgetBody data={data02}
-                    comment={"labore..."}/>
+        {
+            comments.map((comment, number) => {
+                return (
+                    <WidgetBody get={comment.get} max={comment.max} comment={comment.comment} key={number}/>
+                )
+            })
+        }
     </Widget>
 }
 export default BuyerFeedbackWidget;

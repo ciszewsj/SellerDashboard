@@ -2,8 +2,19 @@ import {Label, Pie, PieChart, ResponsiveContainer} from "recharts";
 import {useContext} from "react";
 import {SettingsContext} from "../data/Settings";
 
-let ChartGraph = ({data}) => {
+let ChartGraph = ({get, max}) => {
     const [settings] = useContext(SettingsContext);
+
+    let data = [
+        {
+            "value": max - get,
+            fill: "rgba(0,0,0,0)"
+        },
+        {
+            "value": get,
+            fill: "#FF8D76"
+        }
+    ];
 
     return (<div className={"circle-chart"}>
         <ResponsiveContainer width="100%" height={90}>
@@ -13,7 +24,8 @@ let ChartGraph = ({data}) => {
                      nameKey="name"
                      cx="50%"
                      cy="50%" innerRadius={30} outerRadius={40}>
-                    <Label className={`chart-text ${ settings.bgDark &&"chart-text-dark"}`} value={`45/99`} position="center"/>
+                    <Label className={`chart-text ${settings.bgDark && "chart-text-dark"}`} value={`${get}/${max}`}
+                           position="center"/>
                 </Pie>
 
             </PieChart>

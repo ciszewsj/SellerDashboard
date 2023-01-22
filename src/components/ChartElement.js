@@ -1,8 +1,8 @@
 import ChartGraph from "../graphs/ChartGraph";
 
-let ChartElement = ({data, title, className}) => {
+let ChartElement = ({title, className, get, max}) => {
     return (<div className={`main-element ${className}`}>
-        <ChartGraph data={data}/>
+        <ChartGraph get={get} max={max}/>
         <p className={"normal-text margin-5px"}>
             {title}
         </p>
