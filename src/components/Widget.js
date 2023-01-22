@@ -1,10 +1,14 @@
 import {ChevronDoubleLeft, ChevronDoubleRight, Circle, CircleFill} from "react-bootstrap-icons";
 import {Dropdown} from "react-bootstrap";
 import {useEffect, useState} from "react";
+import {useContext} from "react";
+import {SettingsContext} from "../data/Settings";
 
 let Widget = ({title, dropdown, children}) => {
     let [page, setPage] = useState(0);
     let numberOfPages = children && children[0] ? children.length : 1;
+
+    const [settings] = useContext(SettingsContext);
 
     let setPages = (page) => {
         if (page < 0) {
@@ -16,11 +20,16 @@ let Widget = ({title, dropdown, children}) => {
     }
 
     useEffect(() => {
+        setPages(page)
+    }, [settings.data])
+
+    useEffect(() => {
         let interval = setInterval(() => {
             setPages(page + 1)
         }, 30000);
         return () => clearInterval(interval);
-    }, [page]);
+    }, [page, settings.data]);
+
 
     let Circles = () => {
         return (
@@ -41,6 +50,15 @@ let Widget = ({title, dropdown, children}) => {
 
             </div>)
     }
+
+    let NoInformationAvailable = () => {
+        return (
+            <div className={"main-element main-text-on-widget"}>
+                <p className={"chart-text d-inline"}>{settings.lang.noInformationAvailable}</p>
+            </div>
+        )
+    }
+
     return <div className={"widget-body"}>
         <div className={"widget-line"}/>
         {dropdown &&
@@ -61,7 +79,7 @@ let Widget = ({title, dropdown, children}) => {
         </h1>
         <div className={"field-size"}>
             <div className={"field-relative-container"}>
-                {children && children[page] ? children[page] : children}
+                {children && children[page] ? children[page] : <NoInformationAvailable/>}
             </div>
         </div>
     </div>

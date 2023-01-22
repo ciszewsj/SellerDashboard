@@ -7,11 +7,13 @@ import './css/Navigation.css';
 import SellerDashboardSite from "./sites/SellerDashboardSite";
 import Settings, {SettingsContext} from "./data/Settings";
 import {useState} from "react";
+import DataLoader from "./components/DataLoader";
 
 function App() {
     const [settings, setSettings] = useState(Settings);
     return (
         <SettingsContext.Provider value={[settings, setSettings]}>
+            <DataLoader/>
             <div className={`min-vh-100 ${settings.bgDark && "bg-dark text-bg-dark"}`}>
                 <div className={`App h-100 ${settings.bgDark && "bg-dark text-bg-dark"}`}>
                     <NavigationBar/>

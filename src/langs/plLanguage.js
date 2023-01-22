@@ -64,6 +64,8 @@ let PlLanguage = () => {
         advice_2: "Zawsze dawaj zniżkę osobom, które lubią się targować.",
         advice_3: "Jeżeli będziesz umiał wywołać u ludzi śmiech, to znaczy że jesteś w formie!",
 
+        noInformationAvailable: "Brak informacji do wyświetlenia",
+
     }
 }
 

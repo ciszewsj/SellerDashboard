@@ -95,8 +95,11 @@ let SalesChartWidget = () => {
     }
 
     return <Widget title={settings.lang.salesChart} dropdown={SalesChartDropdown()}>
-        <WidgetBody type={0} data={datas.sold}/>
-        <WidgetBody type={1} data={datas.transactions}/>
+        {datas.sold.length &&
+            <WidgetBody type={0} data={datas.sold}/>}
+        {datas.transactions.length &&
+            <WidgetBody type={1} data={datas.transactions}/>
+        }
     </Widget>
 }
 export default SalesChartWidget;

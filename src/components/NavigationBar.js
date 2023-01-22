@@ -1,7 +1,7 @@
 import {Dropdown, Nav, Navbar, NavLink} from "react-bootstrap";
 import {GearFill} from "react-bootstrap-icons";
 import DropdownButton from "./DropdownButton";
-import {SettingsContext} from "../data/Settings";
+import {SettingsContext, users} from "../data/Settings";
 import {useContext} from "react";
 import plLanguage from "../langs/plLanguage";
 import enLanguage from "../langs/enLanguage";
@@ -28,16 +28,24 @@ let NavigationBar = () => {
         setSettings({...settings})
     }
 
+    let onUserChange = (e) => {
+        settings.user = users[e]
+        setSettings({...settings})
+    }
+
     return <Navbar className={`navbar-custom navbar-expand-xxl ${settings.bgDark && "navbar-custom-dark"}`}>
         <Nav className={"me-auto"}>
             <NavLink to={"/"}
                      className={`title-text ${settings.bgDark && "text-white"}`}>{settings.lang.title}</NavLink>
         </Nav>
         <Nav>
-            <DropdownButton title={"Konto1"} menu="dropdown-menu-end">
-                <Dropdown.Item className={"normal-text"}>Konto1</Dropdown.Item>
-                <Dropdown.Item className={"normal-text"}>Konto2</Dropdown.Item>
-                <Dropdown.Item className={"normal-text"}>Konto3</Dropdown.Item>
+            <DropdownButton title={settings.user} menu="dropdown-menu-end" action={onUserChange}>
+                {users.map((usr, number) => {
+                        return (
+                            <Dropdown.Item className={"normal-text"} eventKey={number} key={number}>{usr}</Dropdown.Item>
+                        )
+                    }
+                )}
             </DropdownButton>
             <DropdownButton toggle={
                 <Dropdown.Toggle className={`gear-button`}>
