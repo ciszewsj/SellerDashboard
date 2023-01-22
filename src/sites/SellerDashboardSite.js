@@ -6,12 +6,17 @@ import OfferRankingWidget from "../widgets/OfferRankingWidget";
 import SalesChartWidget from "../widgets/SalesChartWidget";
 import SalesAdviceWidget from "../widgets/SalesAdviceWidget";
 import DataLoader from "../components/DataLoader";
+import {useContext} from "react";
+import {SettingsContext} from "../data/Settings";
+import {Navigate} from "react-router-dom";
 
 let SellerDashboardSite = () => {
+    const [settings] = useContext(SettingsContext);
 
 
     return (
         <Container className={"container-xxl"}>
+            {!settings.auth && <Navigate to={"/login"}/>}
             <DataLoader/>
 
             <Row className={"justify-content-center row-cols-sm mx-auto align-items-center"}>
