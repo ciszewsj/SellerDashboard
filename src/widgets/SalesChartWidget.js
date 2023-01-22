@@ -65,17 +65,30 @@ let SalesChartWidget = () => {
                 <div className={"chart-box"}>
                     <ResponsiveContainer width="100%" height={100}>
                         {acType === (1).toString() ?
-                            <ColumnGraph data={data}/> :
+                            <ColumnGraph data={data} previous={previous}/> :
                             <LineGraph data={data} previous={previous}/>
                         }
                     </ResponsiveContainer>
                 </div>
 
                 <div className={"legend-box"}>
-                    <div className={"color-box"}/>
-                    <p className={"normal-text legend-description"}>
-                        {times[Number(time)]}
-                    </p>
+
+                    <div className={"over-legend"}>
+                        <div className={"legend-text"}>
+                            <span className={"color-box"}/>
+                            <p className={"normal-text legend-description"}>
+                                {times[Number(time)]}
+                            </p>
+                        </div>
+                        {previous &&
+                            <div className={"legend-text"}>
+                                <span className={"color-box color-box-previous"}/>
+                                <p className={"normal-text legend-description"}>
+                                    {settings.lang.previousPeriod}
+                                </p>
+                            </div>
+                        }
+                    </div>
                 </div>
             </>
         )

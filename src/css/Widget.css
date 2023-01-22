@@ -173,7 +173,7 @@ button {
     margin-top: 5px;
 }
 
-.margin-5px{
+.margin-5px {
     margin-top: 5px;
 }
 
@@ -205,12 +205,11 @@ button {
 
 .legend-box {
     position: absolute;
-    left: 50%;
-    transform: translate(-50%, 0);
+    width: 100%;
+    left: 0;
     height: 25px;
     top: 135px;
     clear: both;
-    display: inline-block;
     overflow: hidden;
     white-space: nowrap;
 }
@@ -223,14 +222,14 @@ button {
     float: left;
 }
 
+.color-box-previous {
+    background-color: #FF7058;
+
+}
+
 .legend-description {
-    display: inline-block;
-    overflow: hidden;
-    clear: both;
-    white-space: nowrap;
-    margin-left: 5px;
+    /*margin-left: 5px;*/
     margin-top: 3px;
-    margin-bottom: auto;
 }
 
 
@@ -258,4 +257,17 @@ button {
 .right-graph-position {
     right: -45px;
     left: auto;
+}
+
+
+.over-legend {
+    display: inline-block;
+    margin: auto;
+}
+
+.legend-text {
+    width: 130px;
+    display: table;
+    float: left;
+    text-align: center;
 }

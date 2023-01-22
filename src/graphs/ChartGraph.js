@@ -23,7 +23,9 @@ let ChartGraph = ({get, max}) => {
                 <Pie data={data} legendType={"none"} isAnimationActive={false} dataKey="value"
                      nameKey="name"
                      cx="50%"
-                     cy="50%" innerRadius={30} outerRadius={40}>
+                     cy="50%" innerRadius={30} outerRadius={40}
+                     stroke={`${settings.bgDark ? "rgba(255,255,255)" :
+                         "rgba(0, 0, 0, 0.1)"}`}>
                     <Label className={`chart-text ${settings.bgDark && "chart-text-dark"}`} value={`${get}/${max}`}
                            position="center"/>
                 </Pie>

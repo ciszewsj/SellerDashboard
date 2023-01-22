@@ -3,14 +3,19 @@
     height: 30px;
 }
 
+.navbar-custom-dark {
+    background-color: rgba(255, 141, 118, 0.5);
+    height: 30px;
+}
+
 .title-text {
     font-size: 19px;
-    /*color: #000000;*/
     clear: both;
     display: inline-block;
     overflow: hidden;
     white-space: nowrap;
 }
+
 
 .big-text {
     font-size: 64px;
@@ -77,6 +82,17 @@ a:active {
     --bs-btn-border-color: rgba(255, 199, 178, 0.5);
     --bs-btn-active-border-color: rgba(255, 199, 178, 0.5);
 
+}
+
+.drop-down-custom-dark {
+    background-color: rgba(255, 199, 178, 0.25);
+    color: #fff;
+}
+
+.drop-down-custom-dark:hover,
+.drop-down-custom-dark:focus {
+    background-color: rgba(255, 199, 178, 0.25);
+    color: rgba(255, 255, 255, 0.5);
 }
 
 .drop-down-custom:hover,

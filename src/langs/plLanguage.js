@@ -58,6 +58,8 @@ let PlLanguage = () => {
         lastWeek: "Poprzedni tydzień",
         lastTime: "Poprzedni okres",
 
+        previousPeriod: "Poprzedni",
+
         advice_1: "Im większe ryzyko, tym większa korzyść. Nie ma ryzyka, nie ma zabawy.",
         advice_2: "Zawsze dawaj zniżkę osobom, które lubią się targować.",
         advice_3: "Jeżeli będziesz umiał wywołać u ludzi śmiech, to znaczy że jesteś w formie!",

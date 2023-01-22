@@ -28,9 +28,9 @@ let NavigationBar = () => {
         setSettings({...settings})
     }
 
-    return <Navbar className={"navbar-custom navbar-expand-xxl"}>
+    return <Navbar className={`navbar-custom navbar-expand-xxl ${settings.bgDark && "navbar-custom-dark"}`}>
         <Nav className={"me-auto"}>
-            <NavLink to={"/"} className={"title-text"}>{settings.lang.title}</NavLink>
+            <NavLink to={"/"} className={`title-text ${settings.bgDark && "text-white"}`}>{settings.lang.title}</NavLink>
         </Nav>
         <Nav>
             <DropdownButton title={"Konto1"} menu="dropdown-menu-end">
