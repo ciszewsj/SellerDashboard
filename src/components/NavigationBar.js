@@ -5,10 +5,12 @@ import {SettingsContext, users} from "../data/Settings";
 import {useContext} from "react";
 import plLanguage from "../langs/plLanguage";
 import enLanguage from "../langs/enLanguage";
+import {useNavigate} from "react-router-dom";
 
 let NavigationBar = () => {
-
     const [settings, setSettings] = useContext(SettingsContext);
+
+    const navigate = useNavigate();
 
     let languages = ["Polski", "English"];
     let modes = [settings.lang.light, settings.lang.dark];
@@ -35,7 +37,10 @@ let NavigationBar = () => {
 
     return <Navbar className={`navbar-custom navbar-expand-xxl ${settings.bgDark && "navbar-custom-dark"}`}>
         <Nav className={"me-auto"}>
-            <NavLink to={"/"}
+            <NavLink onClick={e => {
+                e.preventDefault();
+                navigate("/")
+            }}
                      className={`title-text ${settings.bgDark && "text-white"}`}>{settings.lang.title}</NavLink>
         </Nav>
         <Nav>

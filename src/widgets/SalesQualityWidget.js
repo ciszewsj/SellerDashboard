@@ -3,7 +3,6 @@ import ChartElement from "../components/ChartElement";
 import {useContext} from "react";
 import {SettingsContext} from "../data/Settings";
 import NavigationText from "../components/NavigationText";
-import data from "bootstrap/js/src/dom/data";
 
 
 let SalesQualityWidget = () => {
@@ -14,12 +13,13 @@ let SalesQualityWidget = () => {
 
     let datas = settings.data.qualitySales;
 
+    let link = "/sales-quality";
 
     let WidgetQualityMarkBody = () => {
         return (
             <>
                 <ChartElement title={settings.lang.qualityMark} get={datas.mark.get} max={datas.mark.max}/>
-                <NavigationText/>
+                <NavigationText link={link}/>
             </>
         )
     }
@@ -33,7 +33,7 @@ let SalesQualityWidget = () => {
                 <p className={"normal-text widget-title-position"}>
                     {settings.lang.qualityCategory}
                 </p>
-                <NavigationText/>
+                <NavigationText link={link}/>
             </>
         )
     }
@@ -54,7 +54,7 @@ let SalesQualityWidget = () => {
                     <ChartElement title={aspects[datas.worst[2].type]} get={datas.worst[2].get} max={datas.worst[2].max}
                                   className={"right-graph-position"}/>}
 
-                <NavigationText/>
+                <NavigationText link={link}/>
             </>
         )
     }

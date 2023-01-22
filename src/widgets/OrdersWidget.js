@@ -14,14 +14,14 @@ let OrdersWidget = () => {
             <p className={"normal-text widget-title-position"}>
                 {type}
             </p>
-            <NavigationText/>
+            <NavigationText link={link}/>
         </>)
     }
 
     return <Widget title={settings.lang.orders}>
-        <WidgetBody amount={settings.data.orders.notSent} type={settings.lang.notSent}/>
-        <WidgetBody amount={settings.data.orders.notPaid} type={settings.lang.notPaid}/>
-        <WidgetBody amount={settings.data.orders.returns} type={settings.lang.returns}/>
+        <WidgetBody amount={settings.data.orders.notSent} type={settings.lang.notSent} link={"/orders/notSent"}/>
+        <WidgetBody amount={settings.data.orders.notPaid} type={settings.lang.notPaid} link={"/orders/notPaid"}/>
+        <WidgetBody amount={settings.data.orders.returns} type={settings.lang.returns} link={"/orders/returns"}/>
     </Widget>
 };
 

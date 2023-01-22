@@ -13,6 +13,7 @@ let BuyerFeedbackWidget = () => {
     let options = [settings.lang.all, settings.lang.positive, settings.lang.negative];
     const [option, setOption] = useState("0");
 
+    let link = "/buyer-feedback";
     let comments;
 
     if (Number(option) === 0) {
@@ -42,7 +43,7 @@ let BuyerFeedbackWidget = () => {
                 <p className={"normal-text widget-title-position widget-p"}>
                     {comment}
                 </p>
-                <NavigationText/>
+                <NavigationText link={link}/>
             </>
         )
     }

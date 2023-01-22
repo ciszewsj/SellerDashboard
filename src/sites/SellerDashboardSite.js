@@ -5,12 +5,15 @@ import BuyerFeedbackWidget from "../widgets/BuyerFeedbackWidget";
 import OfferRankingWidget from "../widgets/OfferRankingWidget";
 import SalesChartWidget from "../widgets/SalesChartWidget";
 import SalesAdviceWidget from "../widgets/SalesAdviceWidget";
+import DataLoader from "../components/DataLoader";
 
 let SellerDashboardSite = () => {
 
 
     return (
         <Container className={"container-xxl"}>
+            <DataLoader/>
+
             <Row className={"justify-content-center row-cols-sm mx-auto align-items-center"}>
                 <Col className={"d-flex justify-content-center align-items-center"}>
                     <OrdersWidget/>
