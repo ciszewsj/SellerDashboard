@@ -1,4 +1,4 @@
-import {BarChart, CartesianGrid, Line, XAxis, YAxis} from "recharts";
+import {Bar, BarChart, CartesianGrid, Line, XAxis, YAxis} from "recharts";
 
 let ColumnGraph = ({data}) => {
     return (<BarChart width={250} height={100} data={data}
@@ -6,7 +6,8 @@ let ColumnGraph = ({data}) => {
         <CartesianGrid strokeDasharray="3 3"/>
         <XAxis dataKey="name"/>
         <YAxis width={35}/>
-        <Line type="monotone" dataKey="pv" stroke="#7A1C18" isAnimationActive={false}/>
+        <Bar type="monotone" dataKey="pv" fill="#7A1C18" isAnimationActive={false}/>
+        <Bar type="monotone" dataKey="lv" fill="#7A1C18" isAnimationActive={false}/>
     </BarChart>)
 }
 

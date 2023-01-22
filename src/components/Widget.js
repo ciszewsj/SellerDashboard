@@ -18,7 +18,7 @@ let Widget = ({title, dropdown, children}) => {
     useEffect(() => {
         let interval = setInterval(() => {
             setPages(page + 1)
-        }, 10000);
+        }, 30000);
         return () => clearInterval(interval);
     }, [page]);
 

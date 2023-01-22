@@ -18,37 +18,17 @@ let SalesChartWidget = () => {
 
     const [time, setTime] = useState("0");
     const [acType, setAcType] = useState("0");
-    
-    const data = [
-        {
-            "name": "pn",
-            "pv": 2400,
-        },
-        {
-            "name": "wt",
-            "pv": 1398,
-        },
-        {
-            "name": "śr",
-            "pv": 9800,
-        },
-        {
-            "name": "cz",
-            "pv": 3908,
-        },
-        {
-            "name": "pt",
-            "pv": 4800,
-        },
-        {
-            "name": "sb",
-            "pv": 3800,
-        },
-        {
-            "name": "nd",
-            "pv": 4300,
-        }
-    ]
+    const [previous, setPrevious] = useState(false);
+
+    let datas;
+
+    if (Number(time) === 0) {
+        datas = settings.data.chart.today;
+    } else if (Number(time) === 1) {
+        datas = settings.data.chart.week;
+    } else {
+        datas = settings.data.chart.lastWeek;
+    }
 
     let SalesChartDropdown = () => {
         return <DropdownButton title={settings.lang.options}>
@@ -72,11 +52,11 @@ let SalesChartWidget = () => {
                 })}
             </DropdownButton>
             <p className={"normal-text drop-down-toggle-position"}>{settings.lang.lastTime}</p>
-            <input type={"checkbox"}/>
+            <input type={"checkbox"} onChange={e => setPrevious(e.target.checked)}/>
         </DropdownButton>
     }
 
-    let WidgetBody = ({type}) => {
+    let WidgetBody = ({type, data}) => {
         return (
             <>
                 <p className={"normal-text widget-title-over-position"}>
@@ -86,7 +66,7 @@ let SalesChartWidget = () => {
                     <ResponsiveContainer width="100%" height={100}>
                         {acType === (1).toString() ?
                             <ColumnGraph data={data}/> :
-                            <LineGraph data={data}/>
+                            <LineGraph data={data} previous={previous}/>
                         }
                     </ResponsiveContainer>
                 </div>
@@ -102,8 +82,8 @@ let SalesChartWidget = () => {
     }
 
     return <Widget title={settings.lang.salesChart} dropdown={SalesChartDropdown()}>
-        <WidgetBody type={0}/>
-        <WidgetBody type={1}/>
+        <WidgetBody type={0} data={datas.sold}/>
+        <WidgetBody type={1} data={datas.transactions}/>
     </Widget>
 }
 export default SalesChartWidget;

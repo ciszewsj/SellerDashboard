@@ -88,7 +88,7 @@ let OfferRankingWidget = () => {
             </>
         )
     }
-    console.log(offers)
+
     return <Widget title={settings.lang.offerRanking} dropdown={OfferRankingDropdown()}>
         {offers.map((offer, number) => {
                 return (
