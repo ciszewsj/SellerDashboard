@@ -27,9 +27,9 @@ let EnLanguage = () => {
 
         aspects_1: "Delivery time",
         aspects_2: "Packing",
-        aspects_3: "Service quality",
-        aspects_4: "Customer service",
-        aspects_5: "Product description",
+        aspects_3: "Quality",
+        aspects_4: "Service",
+        aspects_5: "Description",
 
         all: "All",
         positive: "Positive",
