@@ -4,13 +4,13 @@ let user2Data = () => {
             notPaid: 5, notSent: 10, returns: 3,
         }, qualitySales: {
             mark: {
-                get: 50, max: 70, mark: 2
+                get: 30, max: 70, mark: 1
             }, worst: [{
-                type: 1, get: 1, max: 5
+                type: 0, get: 1, max: 7
             }, {
-                type: 3, get: 1, max: 6
+                type: 2, get: 1, max: 4
             }, {
-                type: 4, get: 1, max: 3
+                type: 3, get: 1, max: 7
             }]
         }, feedback: {
             best: [{
