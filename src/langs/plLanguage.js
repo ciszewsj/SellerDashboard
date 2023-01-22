@@ -32,7 +32,7 @@ let PlLanguage = () => {
 
         all: "Wszystkie",
         positive: "Pozytywne",
-        negative: "Negatywane",
+        negative: "Negatywne",
         options: "Opcje",
         bought: "Kupowane",
         filterBy: "Filtruj przez",
